@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data & models
+data/
+*.pt
+*.pth
+
+# Results (only keep plots if small)
+results/
+
+# OS files
+.DS_Store
+Thumbs.db
