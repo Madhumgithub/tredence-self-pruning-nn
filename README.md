@@ -37,14 +37,15 @@ Total Loss = Classification Loss + λ × Sparsity Loss
 
 | Lambda | Accuracy (%) | Sparsity (%) |
 |--------|-------------|--------------|
-| 0.01   | XX          | XX           |
-| 0.1    | XX          | XX           |
-| 1.0    | XX          | XX           |
+| 0.01   | 50.99       | 1.75         |
+| 0.10   | 51.59       | 7.78         |
+| 1.00   | 50.82       | 24.82        |
 
 ### Observations
-- Increasing λ increases sparsity  
-- Higher sparsity leads to reduced accuracy  
-- Clear trade-off between efficiency and performance  
+- Increasing λ increases sparsity significantly  
+- Accuracy remains relatively stable despite pruning  
+- At λ = 1.0, the model removes ~25% of weights with minimal accuracy drop  
+- Demonstrates effective self-pruning behavior with controlled trade-off    
 
 ---
 
