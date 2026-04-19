@@ -31,3 +31,9 @@ The results demonstrate the effectiveness of L1-based sparsity regularization:
 
 This highlights a key insight:  
 **Neural networks are often over-parameterized, and structured regularization can reduce complexity without sacrificing accuracy.**
+
+## Conclusion
+
+This project demonstrates a differentiable approach to model pruning, where the network learns its own optimal sparse structure during training. 
+
+Such techniques are highly relevant in real-world deployment scenarios where memory and latency constraints are critical.
