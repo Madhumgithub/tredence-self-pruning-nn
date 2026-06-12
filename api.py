@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
@@ -28,12 +28,19 @@ def home():
 
 
 @app.post("/predict/")
-async def predict(file: bytes):
-    image = Image.open(io.BytesIO(file)).convert("RGB")
+async def predict(file: UploadFile = File(...)):
+
+    contents = await file.read()
+
+    image = Image.open(io.BytesIO(contents)).convert("RGB")
+
     image = transform(image).unsqueeze(0)
 
     with torch.no_grad():
         outputs = model(image)
         _, predicted = torch.max(outputs, 1)
 
-    return {"prediction": classes[predicted.item()]}
+    return {
+        "filename": file.filename,
+        "prediction": classes[predicted.item()]
+    }
